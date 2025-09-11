@@ -379,7 +379,7 @@ def add_denoise_nodes(context):
         tree.links.new(render_node.outputs["CryptoAsset02"], file_output_node.inputs["CryptoAsset02"])
     if "Noisy Image" in render_node.outputs and "Noisy_Image" in file_output_node.inputs:
         tree.links.new(render_node.outputs["Noisy Image"], file_output_node.inputs["Noisy_Image"])
-    if "Noisy shadow Catcher" in render_node.outputs and "Noisy_Shadow_Catcher" in file_output_node.inputs:
+    if "Noisy Shadow Catcher" in render_node.outputs and "Noisy_Shadow_Catcher" in file_output_node.inputs:
         tree.links.new(render_node.outputs["Noisy Shadow Catcher"], file_output_node.inputs["Noisy_Shadow_Catcher"])
     if "Denoising Normal" in render_node.outputs and "Denoising_Normal" in file_output_node.inputs:
         tree.links.new(render_node.outputs["Denoising Normal"], file_output_node.inputs["Denoising_Normal"])
