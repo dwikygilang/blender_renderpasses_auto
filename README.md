@@ -7,7 +7,7 @@ It is designed to speed up rendering workflows by setting up a consistent node s
 ## ✨ Features
 - One-click setup for render passes in the compositor.
 - Automatically creates and links **File Output nodes** for each pass.
-- Compatible with Blender 4.x and above
+- Compatible with Blender 5.x and above
 
 ## 🚀 Usage
 - Open the Compositor in Blender.
