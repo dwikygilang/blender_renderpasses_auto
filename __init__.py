@@ -74,6 +74,8 @@ def setup_view_layers(context):
     # Light Passes
     # =========================
     view_layer.use_pass_diffuse_color = True
+    view_layer.use_pass_diffuse_direct = True
+    view_layer.use_pass_diffuse_indirect = True
     view_layer.use_pass_glossy_direct = True
     view_layer.use_pass_glossy_indirect = True
     view_layer.use_pass_glossy_color = True
@@ -148,6 +150,8 @@ def set_File_Output_nodes(context, file_output_node):
         "Mist",
         "Normal",
         "Vector",
+        "DiffDir",
+        "DiffInd",
         "DiffCol",
         "Glossy_Direct_Denoised",
         "Glossy_Indirect_Denoised",
@@ -353,6 +357,10 @@ def add_denoise_nodes(context):
         tree.links.new(render_node.outputs["Normal"], file_output_node.inputs["Normal"])
     if "Vector" in render_node.outputs and "Vector" in file_output_node.inputs:
         tree.links.new(render_node.outputs["Vector"], file_output_node.inputs["Vector"])
+    if "DiffDir" in render_node.outputs and "DiffDir" in file_output_node.inputs:
+        tree.links.new(render_node.outputs["DiffDir"], file_output_node.inputs["DiffDir"])
+    if "DiffInd" in render_node.outputs and "DiffInd" in file_output_node.inputs:
+        tree.links.new(render_node.outputs["DiffInd"], file_output_node.inputs["DiffInd"])
     if "DiffCol" in render_node.outputs and "DiffCol" in file_output_node.inputs:
         tree.links.new(render_node.outputs["DiffCol"], file_output_node.inputs["DiffCol"])
     if "GlossCol" in render_node.outputs and "Glossy_Color" in file_output_node.inputs:
@@ -495,7 +503,7 @@ class TEMPLATE_PT_panel(bpy.types.Panel):
     bl_idname = "TEMPLATE_PT_panel"
     bl_space_type = 'NODE_EDITOR'
     bl_region_type = 'UI'
-    bl_category = "Template"
+    bl_category = "Templates"
 
     @classmethod
     def poll(cls, context):
